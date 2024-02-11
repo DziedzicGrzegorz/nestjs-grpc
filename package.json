@@ -15,14 +15,14 @@
     "start:prod": "node dist/apps/apigateway/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" ",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "tlint" : "pnpm lint && pnpm tsc",
+    "tlint": "pnpm lint && pnpm tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/apigateway/test/jest-e2e.json",
-    "proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=nestjs=true --ts_proto_opt=esModuleInterop=true --ts_proto_opt=outputEncodeMethods=true --ts_proto_opt=returnObservable=true --ts_proto_opt=nestJs=true --ts_proto_opt=grpcNest=true --ts_proto_opt=oneof=unions ./proto/auth.proto",
-    "proto-simple": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/auth.proto"
+    "proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/common/src/types --ts_proto_opt=nestjs=true --ts_proto_opt=esModuleInterop=true --ts_proto_opt=outputEncodeMethods=true --ts_proto_opt=returnObservable=true --ts_proto_opt=nestJs=true --ts_proto_opt=grpcNest=true --ts_proto_opt=oneof=unions ./proto/auth.proto",
+    "proto-simple": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/common/src/types --ts_proto_opt=nestJs=true ./proto/auth.proto"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.10.0",
