@@ -24,7 +24,12 @@ export interface FindOneUserDto {
   email: string;
 }
 
+export interface DeleteUserDto {
+  Id: string;
+}
+
 export interface UpdateUserDto {
+  Id: string;
   email: string;
   lastVisit: string;
   UrlIds: string[];
@@ -47,9 +52,9 @@ export interface UserServiceClient {
 
   findOneUser(request: FindOneUserDto): Observable<User>;
 
-  updateUser(request: FindOneUserDto): Observable<User>;
+  updateUser(request: UpdateUserDto): Observable<User>;
 
-  deleteUser(request: FindOneUserDto): Observable<User>;
+  deleteUser(request: DeleteUserDto): Observable<User>;
 
   queryUsers(request: Observable<PaginationDto>): Observable<Users>;
 }
@@ -61,9 +66,9 @@ export interface UserServiceController {
 
   findOneUser(request: FindOneUserDto): Promise<User> | Observable<User> | User;
 
-  updateUser(request: FindOneUserDto): Promise<User> | Observable<User> | User;
+  updateUser(request: UpdateUserDto): Promise<User> | Observable<User> | User;
 
-  deleteUser(request: FindOneUserDto): Promise<User> | Observable<User> | User;
+  deleteUser(request: DeleteUserDto): Promise<User> | Observable<User> | User;
 
   queryUsers(request: Observable<PaginationDto>): Observable<Users>;
 }
